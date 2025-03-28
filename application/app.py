@@ -17,7 +17,14 @@ st.markdown(
 st.title("Skincare Ingredient Classifier")
 st.write("Please paste your ingredient list here:")
 
+with st.sidebar:
+    st.write("This project aims so classify inputted ingredient list into suitable skin types")
+
 st.text_area("Ingredients")
 st.button("Classify")
 
-st.write("Based on these ingredients, this product is suitable for :")
+allSkinTypes = ["Oily","Dry","Sensitive","Combination"]
+options = st.segmented_control(
+     "Skin Type", allSkinTypes, selection_mode="multi"
+)
+st.write(f"Based on these ingredients, this product is suitable for :{options}")
